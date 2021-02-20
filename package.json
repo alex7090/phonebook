@@ -1,0 +1,23 @@
+{
+    "name": "phonebook",
+    "version": "1.0.0",
+    "description": "phonebook web app",
+    "main": "app.js",
+    "scripts": {
+        "start": "node app.js",
+        "dev": "nodemon app.js"
+    },
+    "keywords": [],
+    "author": "alex7090",
+    "license": "MIT",
+    "devDependencies": {
+        "nodemon": "^2.0.4"
+    },
+    "dependencies": {
+        "body-parser": "^1.19.0",
+        "create-react-app": "^4.0.2",
+        "express": "^4.17.1",
+        "jwt-simple": "^0.5.6",
+        "mongoose": "^5.11.15"
+    }
+}
