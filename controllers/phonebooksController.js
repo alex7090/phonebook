@@ -2,6 +2,7 @@ const PB = require("../schema/phonebook.js");
 
 exports.createEntry = async (req, res, next) => {
     const { firstName, lastName, phoneNumber } = req.body;
+    console.log(req.body);
     if (!firstName || !lastName || !phoneNumber) {
         res.status(400).send({ success: false, error: { message: 'Bad Request' } });
     }

@@ -1,4 +1,4 @@
-//Définition des modules
+const cors = require('cors')
 const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require('body-parser');
@@ -24,6 +24,8 @@ mongoose
 //On définit notre objet express nommé app
 const app = express();
 
+app.use(cors())
+
 //Body Parser
 const urlencodedParser = bodyParser.urlencoded({
     extended: true
@@ -35,5 +37,5 @@ app.use(bodyParser.json());
 app.use('/', require('./routes/phonebook'));
 
 //Définition et mise en place du port d'écoute
-const port = 8800;
+const port = 8080;
 app.listen(port, () => console.log(`Listening on port ${port}`));
