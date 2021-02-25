@@ -42,3 +42,5 @@ or
 ```bash
 yarn run start
 ```
+
+The app should be running on the [localhost](http://localhost:3000/)
