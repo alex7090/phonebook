@@ -5,8 +5,6 @@ const bodyParser = require('body-parser');
 const { truncateSync } = require("fs");
 const PB = require("./schema/phonebook.js");
 
-
-//useNewUrlParser 
 mongoose
     .connect("mongodb://localhost/db", {
         useNewUrlParser: true,
@@ -21,22 +19,17 @@ mongoose
         console.log(e);
     });
 
-
-//On définit notre objet express nommé app
 const app = express();
 
 app.use(cors())
 
-//Body Parser
 const urlencodedParser = bodyParser.urlencoded({
     extended: true
 });
 app.use(urlencodedParser);
 app.use(bodyParser.json());
 
-//Définition du routeur
 app.use('/', require('./routes/phonebook'));
 
-//Définition et mise en place du port d'écoute
 const port = 8080;
 app.listen(port, () => console.log(`Listening on port ${port}`));
