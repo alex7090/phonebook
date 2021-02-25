@@ -32,14 +32,25 @@ exports.createEntry = async (req, res, next) => {
 };
 
 exports.getEntries = (req, res, next) => {
-    PB.find({}, function (err, entries) {
-        res.status(200).send({ success: true, entries: entries });
-    });
+    PB.find()
+        .then(pb => {
+            let returnedBooks = [];
+
+            for (let i = 0; i < pb.length; i++) {
+                returnedBooks.push(pb[i].transform());
+            }
+
+            res.status(200).send(returnedBooks);
+        }).catch(err => {
+            res.status(500).send({
+                message: err.message
+            });
+        });
 };
 
 exports.updateEntry = async (req, res, next) => {
     const { id, firstName, lastName, phoneNumber } = req.body;
-
+    console.log("UPDATE");
     const update = {
         firstName,
         lastName,

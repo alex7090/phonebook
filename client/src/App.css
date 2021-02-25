@@ -36,3 +36,9 @@
     transform: rotate(360deg);
   }
 }
+
+html, body {
+  background-color: GhostWhite;
+  height: 100%;
+  overflow: auto;
+}

@@ -6,7 +6,7 @@ const url = "http://localhost:8080";
 
 export default {
     createEntry: function (firstName, lastName, phoneNumber) {
-        console.log(firstName + lastName + phoneNumber);
+        console.log("Creating a new entry");
         return axios.post(
             `${url}/phonebook`,{
                 firstName: firstName,
@@ -22,7 +22,19 @@ export default {
     getEntries: function () {
         return axios.get(`${url}/phonebook`, { headers: headers });
     },
-    updateEntry: function () {
-        return axios.put(`${url}/phonebook`, { headers: headers });
+    updateEntry: function (id, firstName, lastName, phoneNumber) {
+        console.log("Edit")
+        return axios.post(
+            `${url}/phonebook`,{
+                id: id,
+                firstName: firstName,
+                lastName: lastName,
+                phoneNumber: phoneNumber
+              }
+            ,
+            {
+                headers: headers
+            }
+        );
     }
 };

@@ -3,6 +3,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require('body-parser');
 const { truncateSync } = require("fs");
+const PB = require("./schema/phonebook.js");
 
 
 //useNewUrlParser 
@@ -11,7 +12,7 @@ mongoose
         useNewUrlParser: true,
         useUnifiedTopology: true,
         useCreateIndex: true
-      })
+    })
     .then(() => {
         console.log("Connected to mongoDB");
     })

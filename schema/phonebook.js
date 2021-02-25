@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const phonebookSchema = mongoose.Schema(
+var phonebookSchema = mongoose.Schema(
     {
         firstName: {
             type: String,
@@ -18,7 +18,14 @@ const phonebookSchema = mongoose.Schema(
     }
 );
 
-phonebookSchema.methods = {
-};
+phonebookSchema.method('transform', function() {
+    var obj = this.toObject();
+
+    //Rename fields
+    obj.id = obj._id;
+    delete obj._id;
+
+    return obj;
+});
 
 module.exports = mongoose.model("Phonebook", phonebookSchema);
