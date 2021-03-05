@@ -2,7 +2,6 @@ const PB = require("../schema/phonebook.js");
 
 exports.createEntry = async (req, res, next) => {
     const { firstName, lastName, phoneNumber } = req.body;
-    console.log(req.body);
     if (!firstName || !lastName || !phoneNumber) {
         res.status(400).send({ success: false, error: { message: 'Bad Request' } });
     }
@@ -22,7 +21,6 @@ exports.createEntry = async (req, res, next) => {
         res.status(500).send({ success: false, error: { message: 'Internal Server Error' } });
     }
     try {
-        // Sauvegarde de l'utilisateur en base
         const newEntry = new PB(entry);
         await newEntry.save();
         res.status(201).send({ success: true });
