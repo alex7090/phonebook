@@ -51,8 +51,6 @@ export class editEntry extends React.Component {
         if (!pattern.test(number)) {
             return false;
         } 
-
-
         return true;
     }
 
